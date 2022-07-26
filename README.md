@@ -7,24 +7,25 @@ CloneFinder+ is a method aimed at estimating individual clone genotypes and freq
 CloneFinder+ is a python script developed in a Windows 64-bit architecture.
 1. python 3 (v3.8 was tested)
  > python packages: 
->>   SciPy 
- >>    
- >>   NumPy 
- >>    
->>   Biopython 
- >>    
->>  pandas 
- >>   
->>  networkx  
->>   
->>  matplotlib 
->>   
->>   logbook 
->>   
->>   fire 
->>   
->>   pydot 
- > Note: If the installation of these python packages is not easy, you may want to use Anaconda for Python 3 (https://www.anaconda.com/distribution/). Or you can try python -m pip install [package name].
+ >>  SciPy
+ >>
+ >>  NumPyÂ 
+ >>
+ >>  BiopythonÂ 
+ >>
+ >>  pandasÂ 
+ >>
+ >>  networkx Â 
+ >>  
+ >>  matplotlibÂ 
+ >>
+ >>  logbook
+ >>
+ >>  fireÂ 
+ >>
+ >> pydot
+ >>
+ >Note: If the installation of these python packages is not easy, you may want to use Anaconda for Python 3 (https://www.anaconda.com/distribution/). Or you can try python -m pip install [package name].
 
 ## How to use CloneFinder+
 
@@ -45,12 +46,12 @@ CloneFinder+ is a python script developed in a Windows 64-bit architecture.
  `Sample	Site
 PrimT	P
 Met2T	Met2
-…`
+â€¦`
 
 #### output files
  - Consensus sequences (fasta file)
  
- Mutant and wild type bases are indicated by “T” and “A,” respectively. 
+ Mutant and wild type bases are indicated by â€œTâ€ and â€œA,â€ respectively. 
  - Bootstrap support for each SNV assignment (txt file)
  
 For each SNV position, bootstrap support for mutant base assignment is given.
