@@ -1,0 +1,5 @@
+Sample	Site
+PrimT	P
+Met2T	Met2
+Met4T	Met2
+Met5T	Met1
