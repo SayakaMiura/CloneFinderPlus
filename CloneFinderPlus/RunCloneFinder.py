@@ -25,6 +25,9 @@ Cut = 0.05
 
 Dir = os.getcwd()
 Dir5 = os.path.join(Dir,'Data')
+if os.path.exists(Dir5)!=True: 
+    os.mkdir('Data')
+    os.mkdir('Data'+os.sep+'FastCloneData')	
 CFin = sys.argv[1]
 tuAnnoPath = sys.argv[2]
 
