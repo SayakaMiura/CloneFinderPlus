@@ -1,7 +1,7 @@
 # CloneFinder+_v0.1
 
 ## Description
-CloneFinder+ is a method aimed at estimating individual clone genotypes and frequencies within a tumor sample using a phylogenetic approach. See Huzar et al. (ref. 1) for the detail. The CloneFinder+ program has been developed by Sudhir Kumar. It is written in Python. You are free to download, modify, and expand this code under a permissive license similar to the BSD 2-Clause License (see below).
+CloneFinder+ is a method aimed at estimating individual clone genotypes and frequencies within a tumor sample using a phylogenetic approach. See Huzar et al. (ref. 1) for the detail. The CloneFinder+ program has been developed by Jared Huzar and Sayaka Miura. It is written in Python. You are free to download, modify, and expand this code under a permissive license similar to the BSD 2-Clause License (see below).
 
 ## Dependencies
 CloneFinder+ is a python script developed in a Windows 64-bit architecture.
@@ -36,17 +36,21 @@ CloneFinder+ is a python script developed in a Windows 64-bit architecture.
  
  The input file is a tab-delimited text file, which contains the read counts of wild-type and mutant alleles for each sample. Normal sample should not be included. Each line in the input files gives information for each variant. 
  
- `"XX:ref": Reference read count for the sample, XX
-"XX:alt": Variant read count for the sample, XX`
+ `"XX:ref": Reference read count for the sample, XX`
+ 
+ `"XX:alt": Variant read count for the sample, XX`
  
 - tumor site file (optional)
  
  When migration paths are selected to be inferred, the information of tumor sites need to be provided for each tumor sample. All tumor samples should be listed in the first column, and their site name should be listed in the second column. For example,
  
- `Sample	Site
-PrimT	P
-Met2T	Met2
-…`
+ `Sample	Site`
+ 
+ `PrimT	P`
+ 
+ `Met2T	Met2`
+ 
+ `…`
 
 #### output files
  - Consensus sequences (fasta file)
@@ -64,19 +68,19 @@ For each SNV position, bootstrap support for mutant base assignment is given.
 #### example
  To run example datasets with 30 bootstrap replicates in Example directory, run the following command.
  
-`python Bootstrap_CloneFinderPlus.py Example\ReadCount.txt Example\TumorSite.txt 30`
+`python Bootstrap_CloneFinderPlus.py [full path]ReadCount.txt [full path]TumorSite.txt 30`
 
- The output files will be stored in "Example" directory.
+ The output files will be stored in the same directory as the input files.
 
 To run without the bootstrap option.
  
-`python Bootstrap_CloneFinderPlus.py Example\ReadCount.txt Example\TumorSite.txt 0`
+`python Bootstrap_CloneFinderPlus.py [full path]ReadCount.txt [full path]TumorSite.txt 0`
 
 To run example datasets without migration path inference.
  
-`python Bootstrap_CloneFinderPlus.py Example\ReadCount.txt NA 30`
+`python Bootstrap_CloneFinderPlus.py [full path]ReadCount.txt NA 30`
 
-`python Bootstrap_CloneFinderPlus.py Example\ReadCount.txt NA 0`
+`python Bootstrap_CloneFinderPlus.py [full path]ReadCount.txt NA 0`
 
 
 ## Reference:
