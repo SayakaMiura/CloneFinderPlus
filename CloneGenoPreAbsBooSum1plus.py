@@ -5,11 +5,14 @@ BooTot=sys.argv[1]
 BooTot=int(BooTot)+1
 OriMeg='FullDatasnv_CloneFinderPlus.meg'#'C:\\Users\\kumarlab\\Desktop\\Boostrap_clone0131\\input\\m8Mseed76\\m8Mseed76CFin_CloneFinder.meg'
 BooMeg0='FullData_RepBOOIDsnv_CloneFinderPlus.meg'#'C:\\Users\\kumarlab\\Desktop\\Boostrap_clone0131\\input\\m8Mseed76\\boo\\FullData_RepBOOIDsnv_CloneFinder_map.meg'
-CloLs,Clo2Seq=Functions3.ReadMegSeq(OriMeg)
-SNVc=len(Clo2Seq[CloLs[0]])
+if os.path.exists(OriMeg)==True: CloLs,Clo2Seq=Functions3.ReadMegSeq(OriMeg)
+else:
+   CloLs=[]
+   Clo2Seq={} 
+#SNVc=len(Clo2Seq[CloLs[0]])
 RepLs=list(range(1,BooTot))
 #Clo2MutPosOri=Functions3.Meg2PreAbs(OriMeg) #OriMeg[:-4]+'_PreAbs.txt' from 1
-Tu2CloOri,HitCloLsOri,T2C2FOri=Functions3.GetCloHitForTu(OriMeg[:-4]+'.txt',0)
+#Tu2CloOri,HitCloLsOri,T2C2FOri=Functions3.GetCloHitForTu(OriMeg[:-4]+'.txt',0)
 Clo2MutPosLs={}
 Tu2CloLs={}
 BooC=0
@@ -20,6 +23,7 @@ for Rep in RepLs:
   if os.path.exists(BooMeg)==True:
    BooC+=1
    BLs,Bseq=Functions3.ReadMegSeq(BooMeg)
+   
    for i in Bseq:
       if i!='#hg19':
          bs=Bseq[i]	  

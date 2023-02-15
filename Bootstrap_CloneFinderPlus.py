@@ -40,8 +40,12 @@ CFPcommand='RunCloneFinder.py'
 PPmigProCut=0
 python='python'
 Rscript='Rscript'
-CloneMinDiff=1
+CloneMinDiff=1 #for sequences with >100 SNVs, it is 1%
 CloneBooCut=0.1
+if sys.argv.count('-BooCut')!=0: 
+       CloneBooCut=float(sys.argv[sys.argv.index('-BooCut')+1])
+       print ('bootstrap cut was changed',CloneBooCut)
+#open('a','r').readlines()       
 PPoutdir=CFPpath+os.sep+'PathFinderRes'
 Summary=''
 Align=MegaAlignment()
@@ -180,7 +184,8 @@ if os.path.exists('FullDatasnv_CloneFinderPlus.meg')==True:
 if os.path.exists('FullDatasnv_CloneFinderPlus_All.fasta')==True:
     shutil.copy2('FullDatasnv_CloneFinderPlus_All.fasta',CFin[:-4]+'_All.fasta')
     shutil.copy2('FullDatasnv_CloneFinderPlus_All.txt',CFin[:-4]+'_All.txt')
-
+    CloLs,Clo2Seq=Align.ReadFasSeq('FullDatasnv_CloneFinderPlus_All.fasta')
+    if len(Clo2Seq[CloLs[0]])>100: CloneMinDiff=0.01*len(Clo2Seq[CloLs[0]])
     Functions3.MakeConsenGeno(CFin[:-4]+'_All.fasta',CloneMinDiff,CloneBooCut,BooC) #1 (diff),0.5,100 (boo count),1 (diff),0,100 (boo count) 
 if DriMap=='y':
    ConGen=CFin[:-4]+'_All_consen.txt'
